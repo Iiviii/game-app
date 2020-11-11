@@ -1,16 +1,17 @@
-import React from "react"
+import React from 'react'
+import './App.css'
 import {
   BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom"
-import Home from "./views/Home"
-import GameDetails from "./views/GameDetails"
-import TeamDetails from "./views/TeamDetails"
+import Home from './features/Home'
+import GameDetails from './features/GameDetails'
+import TeamDetails from './features/TeamDetails'
 
-function App() {
+const App = () => {
   return (
-    <div>
+    <div className="App">
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -19,7 +20,7 @@ function App() {
         </Switch>
       </Router>
     </div>
-  );
+  )
 }
 
 export default App;
