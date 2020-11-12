@@ -5,13 +5,20 @@ import {
   Switch,
   Route
 } from "react-router-dom"
+import styled from 'styled-components'
 import Home from './features/Home'
 import GameDetails from './features/GameDetails'
 import TeamDetails from './features/TeamDetails'
 
+const Body = styled.div`
+  padding: 10px;
+  text-align: center;
+`
+
+
 const App = () => {
   return (
-    <div className="App">
+    <Body>
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
@@ -19,7 +26,7 @@ const App = () => {
           <Route path="/teamdetails/:id" component={TeamDetails} />
         </Switch>
       </Router>
-    </div>
+    </Body>
   )
 }
 
