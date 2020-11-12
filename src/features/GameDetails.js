@@ -8,21 +8,18 @@ import {ImportantInfoColor, LogoLink} from './TeamDetails'
 const GameDetails = ({match}) => {  
     const [gameDetails, setGameDetails] = useState()
 
-    const getGameDetails = async () => {
+    useEffect(async() => {
         const res = await fetch(`https://www.balldontlie.io/api/v1/games/${match.params.id}`)
         const gameInfo = await res.json()
         setGameDetails(gameInfo)
-    }
-    useEffect(() => {
-        getGameDetails()
-    }, []) 
+    }, [match.params]) 
 
-    const saveData = () => {
+    const getData = () => {
         const localData = localStorage.getItem('gameDetails')
         return localData ? JSON.parse(localData) : []
       }
       useEffect(() => {
-        saveData()
+        getData()
         if(gameDetails){
           localStorage.setItem('gameDetails', JSON.stringify(gameDetails));
         }

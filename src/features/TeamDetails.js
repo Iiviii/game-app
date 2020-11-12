@@ -17,26 +17,22 @@ export const LogoLink = styled.img`
 const TeamDetails = ({match}) => {
     const [teamDetails, setTeamInfo] = useState()
 
-    useEffect(()=>{
-        getTeam()
-    }, [])
+    useEffect(async () => {
+      const res = await fetch(`https://www.balldontlie.io/api/v1/teams/${match.params.id}`)
+      const teamInfo = await res.json()
+      setTeamInfo(teamInfo)
+    }, [match.params])
     
-    const saveData = () => {
+    const getData = () => {
       const localData = localStorage.getItem('teamDetails')
       return localData ? JSON.parse(localData) : []
     }
     useEffect(() => {
-      saveData()
+      getData()
       if(teamDetails){
         localStorage.setItem('teamDetails', JSON.stringify(teamDetails));
       }
   }, [teamDetails])
-
-    const getTeam = async () => {
-        const res = await fetch(`https://www.balldontlie.io/api/v1/teams/${match.params.id}`)
-        const teamInfo = await res.json()
-        setTeamInfo(teamInfo)
-    }
 
   return (
     <div>
