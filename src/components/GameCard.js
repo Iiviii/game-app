@@ -1,15 +1,15 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const LS = {};
+const LS = {}
 
 LS.Links = styled(Link)`
   text-decoration: none;
   font-size: 20px;
   color: #ff8940;
   transition-duration: 0.7s;
-  :hover{
+  :hover {
     opacity: 0.7;
   }
 `
@@ -25,7 +25,7 @@ export const Card = styled.div`
   transition-duration: 0.4s;
   color: #ffcd57;
   transition-duration: 0.3s;
-  :hover{
+  :hover {
     transform: scale(1.02);
   }
 `
@@ -43,18 +43,30 @@ export const Title = styled.h1`
 const GameCard = ({ game }) => {
   return (
     <Card>
-      <Title>{ game.season } { game.status }</Title>
-      <p>Date: ( { game.date } )</p>
+      <Title>
+        {game.season} {game.status}
+      </Title>
+      <p>Date: ( {game.date} )</p>
       <Dflex>
         <div>
           <h3>Home Team</h3>
-          <LS.Links to={`/teamdetails/${game.home_team.id}`}>{game.home_team.full_name}</LS.Links><br />
-          <LS.Links to={`/gamedetails/${game.id}`}> {game.home_team_score}(scores)</LS.Links>
+          <LS.Links to={`/teamdetails/${game.home_team.id}`}>
+            {game.home_team.full_name}
+          </LS.Links>
+          <br />
+          <LS.Links to={`/gamedetails/${game.id}`}>
+            {game.home_team_score}(scores)
+          </LS.Links>
         </div>
         <div>
           <h3>Visitor Team</h3>
-          <LS.Links to={`/teamdetails/${game.visitor_team.id}`}>{game.visitor_team.full_name}</LS.Links><br />
-          <LS.Links to={`/gamedetails/${game.id}`}> {game.visitor_team_score}(scores)</LS.Links>
+          <LS.Links to={`/teamdetails/${game.visitor_team.id}`}>
+            {game.visitor_team.full_name}
+          </LS.Links>
+          <br />
+          <LS.Links to={`/gamedetails/${game.id}`}>
+            {game.visitor_team_score}(scores)
+          </LS.Links>
         </div>
       </Dflex>
     </Card>

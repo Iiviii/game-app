@@ -1,0 +1,26 @@
+{
+  "extends": ["react-app", "plugin:react/recommended", "prettier"],
+  "plugins": ["react", "prettier"],
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 80,
+        "semi": false,
+        "jsxSingleQoute": true,
+        "useTabs": false,
+        "singleQuote": true,
+        "endOfLine": "auto"
+      }
+    ],
+    "react/prop-types": 0,
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "spaced-comment": "off",
+    "class-methods-use-this": "off",
+    "avoidEscape": true
+  }
+}
